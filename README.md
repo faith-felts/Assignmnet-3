@@ -1,4 +1,4 @@
-# ComponentCornerWeek-3
+# ComponentCornerWeek
 
 Note: The instructions were not clear about whether or not I should submit all of the React framework files or just the files I created. To be safe, I have pushed all of them. You can find the files I created for this assignment here: 
 

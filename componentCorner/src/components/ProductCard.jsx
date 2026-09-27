@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import './ProductCard.css';
 
-function ProductCard({ name, price, image, description, tag }) {
+function ProductCard({ product, onAddToCart }) {
+  const { name, price, image, description, tag } = product;
   const [isWishlisted, setIsWishlisted] = useState(false);
 
   function handleWishlistToggle() {
@@ -26,10 +27,10 @@ function ProductCard({ name, price, image, description, tag }) {
       <div className="product-details">
         <div className="product-title-row">
           <h3>{name}</h3>
-          <p className="product-price">{price}</p>
+          <p className="product-price">${price.toFixed(2)}</p>
         </div>
         <p className="product-description">{description}</p>
-        <button className="add-button" type="button">
+        <button className="add-button" type="button" onClick={() => onAddToCart(product)}>
           <span>Add to bag</span>
           <span aria-hidden="true">+</span>
         </button>

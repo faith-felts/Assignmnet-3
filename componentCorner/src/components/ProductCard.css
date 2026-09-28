@@ -1,4 +1,6 @@
 .product-card {
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
     background: var(--paper);
 }
@@ -59,6 +61,9 @@
 }
 
 .product-details {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
     padding: 20px 15px 0;
 }
 
@@ -84,6 +89,7 @@
 }
 
 .product-description {
+    flex: 1;
     min-height: 48px;
     margin: 10px 0 20px;
     color: var(--muted);
@@ -92,29 +98,56 @@
 }
 
 .add-button {
-    display: flex;
+ display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 12px 0px;
-    border: 0;
-    border-top: 1px solid var(--line);
-    color: var(--ink);
-    background: transparent;
+    min-height: 44px;
+    margin-top: auto;
+    padding: 12px 14px;
+    border: 1px solid var(--ink);
+    color: #29231f;
+    background: var(--cream);
     cursor: pointer;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
     text-align: left;
-}
+    transition: color 180ms ease, background 180ms ease, border-color 180ms ease, transform 180ms ease;
+    margin-bottom: 25px;
+    border-radius: 15px;    
+}  
 
 .add-button span:last-child {
+    min-width: 20px;
     font-size: 20px;
     font-weight: 400;
-    transition: transform 180ms ease;
+    text-align: right;
 }
 
-.add-button:hover span:last-child,
-.add-button:focus-visible span:last-child {
-    color: var(--coral);
-    transform: rotate(90deg);
+.add-button:hover,
+.add-button:focus-visible {
+    box-shadow: 0 4px 12px rgba(233, 109, 77, 0.18);
+    border-color: var(--cream);
+}
+
+.add-button:focus-visible {
+    outline: 2px solid var(--coral);
+    outline-offset: 3px;
+}
+
+.add-button.is-added:hover,
+.add-button.is-added:focus-visible {
+    border-color: var(--sage);
+    color: var(--ink);
+    background: var(--sage);
+}
+
+.add-button:active {
+    transform: scale(0.98);
+}
+
+.add-button.is-added {
+    border-color: var(--sage);
+    color: var(--ink);
+    background: var(--sage);
 }

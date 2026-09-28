@@ -13,7 +13,11 @@ function Header({ storeName, cartCount }) {
         <a href="#footer" className="nav-link">Contact</a>
       </nav>
       <a className="header-action cart-link" href="#cart" aria-label={`Shopping cart, ${cartCount} ${cartCount === 1 ? 'item' : 'items'}`}>
-        <span className="cart-icon" aria-hidden="true">🛒</span>
+        <svg className="cart-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 4h2l2.1 10a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 1.9-1.4L21 8H6" />
+          <circle cx="10" cy="20" r="1" />
+          <circle cx="18" cy="20" r="1" />
+        </svg>
         <span className="cart-badge" aria-hidden="true">{cartCount}</span>
       </a>
     </header>

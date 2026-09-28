@@ -76,7 +76,7 @@ function App() {
             <div className="cart-heading">
               <div>
                 <p className="eyebrow">Your selection</p>
-                <h2 id="cart-heading">Shopping bag</h2>
+                <h2 id="cart-heading">Shopping cart</h2>
               </div>
               <p className="cart-count-label">{cart.length} {cart.length === 1 ? 'item' : 'items'}</p>
             </div>

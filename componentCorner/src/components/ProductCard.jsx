@@ -4,9 +4,16 @@ import './ProductCard.css';
 function ProductCard({ product, onAddToCart }) {
   const { name, price, image, description, tag } = product;
   const [isWishlisted, setIsWishlisted] = useState(false);
+  const [isAdded, setIsAdded] = useState(false);
 
   function handleWishlistToggle() {
     setIsWishlisted((currentValue) => !currentValue);
+  }
+
+  function handleAddToCart() {
+    onAddToCart(product);
+    setIsAdded(true);
+    window.setTimeout(() => setIsAdded(false), 1200);
   }
 
   return (
@@ -30,9 +37,13 @@ function ProductCard({ product, onAddToCart }) {
           <p className="product-price">${price.toFixed(2)}</p>
         </div>
         <p className="product-description">{description}</p>
-        <button className="add-button" type="button" onClick={() => onAddToCart(product)}>
-          <span>Add to bag</span>
-          <span aria-hidden="true">+</span>
+        <button
+          className={`add-button${isAdded ? ' is-added' : ''}`}
+          type="button"
+          onClick={handleAddToCart}
+        >
+          <span aria-live="polite">{isAdded ? 'Added to cart' : 'Add to cart'}</span>
+          <span aria-hidden="true">{isAdded ? '✓' : '+'}</span>
         </button>
       </div>
     </article>
